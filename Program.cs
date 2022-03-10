@@ -2,24 +2,26 @@
 {
     static void Main()
     {
-        int startNum, targNum, range;
+        Console.Write("Do we have power? (y/n)");
+        bool hasPower = Console.ReadLine().ToLower() == "y";
 
-        Console.Write("Enter an initial number: ");
-        startNum = int.Parse(Console.ReadLine());
+        Console.Write("Do we have paper? (y/n)");
+        bool hasPaper = Console.ReadLine().ToLower() == "y";
 
-        Console.Write("Enter a target number: ");
-        targNum = int.Parse(Console.ReadLine());
+        Console.Write("What's the ink level in numbers?");
+        int inkLevel = int.Parse(Console.ReadLine());   
 
-        Console.Write("Enter a range number: ");
-        range = int.Parse(Console.ReadLine());
-
-        string results = IsWithinRange(startNum, targNum, range) ? "within range" : "not within range";
-
-        Console.WriteLine($"Given a starting number of {startNum} and a target number of {targNum}. It is {results}.");
+        PrintDoc(hasPower, hasPaper, inkLevel);
     }
     private static bool IsWithinRange(int num, int target, int range)
     {
         return ((num - target) <= range) && ((target - num) >= range);
+    }
+
+    private static void PrintDoc(bool hasPower, bool hasPaper, int inkLevel)
+    {
+        string result = hasPaper && hasPower && inkLevel >= 10 ? "Printing" : "Unable to print";
+        Console.Write(result);
     }
     
 }
