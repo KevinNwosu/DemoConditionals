@@ -1,2 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿class MainClass
+{
+    static void Main()
+    {
+
+    }
+    private static bool IsWithinRange(int num, int target, int range)
+    {
+        return (num - target) <= range;
+    }
+}
